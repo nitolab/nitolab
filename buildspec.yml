@@ -1,20 +1,18 @@
 version: 0.2
 
 phases:
+  nstall:
+    - npm i
+
   build:
     commands:
-      - echo Build started on `date`
-      - ls
-      - npm i -d
-      # - npm rebuild node-sass
       - npm run build
 
   post_build:
     commands:
-      - echo Build completed on `date`
+      - all done!
 
-# artifacts:
-#   files:
-#     - target/my-app-1.0-SNAPSHOT.jar
-#     - appspec.yml
-#   discard-paths: yes
+artifacts:
+  type: zip
+  files:
+    - dist/

@@ -11,5 +11,7 @@ phases:
 
 artifacts:
   files:
-    - dist/**/*
+    - dist/*
+    - dist/css/*.css
+    - dist/js/*.js
   base-directory: dist/

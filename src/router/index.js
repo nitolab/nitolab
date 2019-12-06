@@ -36,14 +36,6 @@ const router = new Router({
       meta: {
         title: 'にとりB型'
       }
-    },
-    {
-      path: '*',
-      name: 'NotFound',
-      component: NotFound,
-      meta: {
-        title: '404 not found'
-      }
     }
   ]
 })

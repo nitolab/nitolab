@@ -2,9 +2,10 @@
   <div class="main">
     <h1>にとらぼ</h1>
 
-    <a href="/app/imgupload">にとりB型</a>
-    <a href="/app/comike/">comike</a>
-
+    <ul>
+      <li><a href="/app/imgupload">にとりB型</a></li>
+      <li><a href="/comike/">comike</a></li>
+    </ul>
   </div>
 </template>
 
@@ -21,3 +22,9 @@ export default {
   }
 }
 </script>
+
+<style>
+li {
+  list-style: none;
+}
+</style>

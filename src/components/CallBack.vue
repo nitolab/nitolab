@@ -2,7 +2,7 @@
   <div class="hello">
     <div v-if="success">Success !</div>
     <div v-if="processing"><div class="spinner primary"></div>processing...</div>
-    <div v-if="error"><i class="fas fa-exclamation-triangle"></i> oops.. an error occurred<br/><a href="/auth/login">relogin</a></div>
+    <div v-if="error"><i class="fas fa-exclamation-triangle"></i> oops.. an error occurred<br/><a href="/app/imgupload">relogin</a></div>
     <hr>
     - <a href='/'>nitolab</a> -
   </div>
@@ -58,10 +58,9 @@ export default {
        }
       )
       .then((response) => {
-        console.log(response)
-        if(response.data.statusCode == 200){
+        if(response.status == 200){
           this.success = true
-          let r = JSON.stringify(response.data.results)
+          let r = JSON.stringify(response.data.result)
           setAccessToken(r)
           location.href='/app/imgupload'
           this.processing = false

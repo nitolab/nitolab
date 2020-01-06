@@ -2,10 +2,10 @@
 export const ACCESS_TOKEN_KEY = 'token';
 
 export function getAccessToken() {
-    let session = sessionStorage.getItem(ACCESS_TOKEN_KEY)
+    let session = localStorage.getItem(ACCESS_TOKEN_KEY)
     if(!!session){
         session = JSON.parse(session)
-        if(Date.now() > session.expire){
+        if(Date.now() / 1000 > session.expire){
             clearAccessToken()
             return null
         }
@@ -15,11 +15,11 @@ export function getAccessToken() {
 }
 
 export function clearAccessToken() {
-    sessionStorage.removeItem(ACCESS_TOKEN_KEY);
+    localStorage.removeItem(ACCESS_TOKEN_KEY);
 }
 
 export function setAccessToken(accessToken) {
-    sessionStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
 }
 
 export function hasToken() {

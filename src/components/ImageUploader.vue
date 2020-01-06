@@ -202,7 +202,7 @@ export default {
       })
       .then((res) => {
         this.progress = false
-        if(res.data.statusCode == '200'){
+        if(res.status == 200){
           this.$notify({
             group: 'foo',
             type: 'success',
@@ -218,7 +218,7 @@ export default {
             text: res.data.message
           });
         }
-        console.log(res)
+        // console.log(res)
       })
       .catch((res) => {
         this.progress = false
@@ -228,15 +228,15 @@ export default {
           title: 'error',
           text: 'oops... an error rized'
         });
-        console.log(res)
+        // console.log(res)
       })
 
     },
     twitter_login() {
       axios.get('https://apqa9rq0d4.execute-api.ap-northeast-1.amazonaws.com/prod/twitter/createauth')
       .then((response) => {
-        if(response.status === 200 && response.data.statusCode == 200){
-          this.auth_url = response.data.results.authURL
+        if(response.status === 200){
+          this.auth_url = response.data.result.authURL
           location.href=this.auth_url
         }
       })
